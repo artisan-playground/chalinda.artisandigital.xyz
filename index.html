@@ -17,9 +17,9 @@
     />
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-          'Segoe UI Symbol';
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
       }
     </style>
   </head>
@@ -31,9 +31,7 @@
       <h1>vuetoy</h1>
 
       <!-- Loading indicator -->
-      <div v-if="false">
-        Loading app…
-      </div>
+      <div v-if="false">Loading app…</div>
 
       <!-- The main app -->
       <template>
@@ -51,16 +49,16 @@
           App.routes.push({
             name: routeName,
             path,
-            component: { template: `#${routeName}-route`, ...component }
-          })
+            component: { template: `#${routeName}-route`, ...component },
+          });
         },
         registerComponent(componentName, options) {
           App.components.push([
             componentName,
-            { template: `#${componentName}-component`, ...options }
-          ])
-        }
-      }
+            { template: `#${componentName}-component`, ...options },
+          ]);
+        },
+      };
     </script>
 
     <!-- ############################################################### -->
@@ -79,11 +77,11 @@
       </div>
     </template>
     <script>
-      App.registerComponent('my-app', {
+      App.registerComponent("my-app", {
         data() {
-          return { count: 0 }
-        }
-      })
+          return { count: 0 };
+        },
+      });
     </script>
     <style>
       /* We are following `rscss` convention here: https://rscss.io/ */
@@ -108,30 +106,31 @@
     <!-- ############################################################### -->
 
     <template id="home-route">
+      <img src="images/cha.jpg" />
       <div class="markdown-content" v-html="contents"></div>
     </template>
     <script>
-      App.registerRoute('home', '/', {
+      App.registerRoute("home", "/", {
         data() {
-          return { contents: 'Loading information...' }
+          return { contents: "Loading information..." };
         },
         async mounted() {
           try {
             const response = await fetch(
-              'https://api.github.com/repos/dtinth/vuetoy/readme',
+              "https://api.github.com/repos/dtinth/vuetoy/readme",
               {
-                headers: { Accept: 'application/vnd.github.v3.html' }
+                headers: { Accept: "application/vnd.github.v3.html" },
               }
-            )
-            const responseText = await response.text()
-            this.contents = 'About this project:' + responseText
+            );
+            const responseText = await response.text();
+            this.contents = "About this project:" + responseText;
           } catch (e) {
             this.contents =
-              'Failed to load project information (check console log)'
-            console.error(e)
+              "Failed to load project information (check console log)";
+            console.error(e);
           }
-        }
-      })
+        },
+      });
     </script>
     <style>
       /* GitHub’s README API renders header with `a.anchor` link.
@@ -161,7 +160,7 @@
       </div>
     </template>
     <script>
-      App.registerRoute('usage', '/usage', {})
+      App.registerRoute("usage", "/usage", {});
     </script>
 
     <!-- ############################################################### -->
@@ -170,7 +169,7 @@
       <div>This is Foo</div>
     </template>
     <script>
-      App.registerRoute('foo', '/foo', {})
+      App.registerRoute("foo", "/foo", {});
     </script>
 
     <!-- ############################################################### -->
@@ -179,7 +178,7 @@
       <div>This is Bar</div>
     </template>
     <script>
-      App.registerRoute('bar', '/bar', {})
+      App.registerRoute("bar", "/bar", {});
     </script>
 
     <!-- ############################################################### -->
@@ -190,15 +189,18 @@
 
     <!-- Start the runtime -->
     <script>
-      Vue.config.productionTip = false
-      App.components.forEach(([name, options]) => Vue.component(name, options))
-      App.router = new VueRouter({ routes: App.routes })
-      App.vm = new Vue({ el: '#main', router: App.router })
+      Vue.config.productionTip = false;
+      App.components.forEach(([name, options]) => Vue.component(name, options));
+      App.router = new VueRouter({ routes: App.routes });
+      App.vm = new Vue({ el: "#main", router: App.router });
     </script>
 
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <div
+      class="glitchButton"
+      style="position: fixed; top: 20px; right: 20px"
+    ></div>
     <script src="https://button.glitch.me/button.js"></script>
   </body>
 </html>
