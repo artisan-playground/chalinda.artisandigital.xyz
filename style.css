@@ -42,7 +42,8 @@ body {
 }
 .profile-img {
   height: 350px;
-  padding-right: 200px;
+  border-radius: 50px;
+  margin: 20px;
 }
 
 .nav-bar {
