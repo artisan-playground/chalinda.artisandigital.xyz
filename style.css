@@ -54,6 +54,7 @@ body {
 }
 .navbar-brand img {
   height: 50px;
+  border-radius: 200px;
 }
 .nav-bar .fa-bars {
   font-size: 35px;
@@ -68,6 +69,7 @@ body {
 }
 .nav-link {
   color: #fff !important;
+  font-weight: 600;
 }
 
 .skills-bar p {
@@ -142,12 +144,13 @@ body {
   padding-top: 20px;
   padding-bottom: 10px;
   background-color: #caa794;
-  border-bottom: 20px solid #f3eeea;
+  border-bottom: 20px solid white;
+  border-top: 20px solid white;
 }
 .contact h1 {
   margin-bottom: 15px;
   border: 2px solid #f3eeea;
-  background: #f3eeea;
+  background: white;
   border-top-right-radius: 80px;
   border-bottom-left-radius: 80px;
 }
@@ -171,4 +174,16 @@ body {
   font-size: 15px;
   margin-top: 20px;
   color: #777;
+}
+.call-img {
+  height: 20px;
+  width: 20px;
+}
+.ad-img {
+  height: 40px;
+  width: 40px;
+}
+.so-img {
+  height: 30px;
+  width: 30px;
 }
